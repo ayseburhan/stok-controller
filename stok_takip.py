@@ -2,7 +2,10 @@ from selenium import webdriver
 import time
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
+import telebot
+import settings
 
+bot = telebot.TeleBot(settings.BOT_TOKEN)
 driver= webdriver.Chrome()
 
 url="https://oykufashion.com/sort/haki-dugmeli-sort-tulum/"
@@ -21,11 +24,13 @@ while True:
     if stok_text == "Stokta yok":
         
         print("Ürün bulunamadı")
+        bot.send_message(settings.CHAT_ID,"Ürün bulunamadı")
         time.sleep(60)
         driver.refresh()
         time.sleep(5)
     elif stok_text == "Stokta":
         print("Ürün bulundu.")
+        bot.send_message(settings.CHAT_ID,"Ürün bulundu")
         break
     else:
         print("Beklenmedik hata")
