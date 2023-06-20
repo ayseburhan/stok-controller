@@ -16,7 +16,9 @@ while True:
     time.sleep(2)
     stok_span = driver.find_element(By.XPATH, '//*[@id="product-79264"]/div[1]/div[2]/div/div/div[2]/div/form/div/div[1]/div[3]/p')
     stok_text = stok_span.text
-    if stok_text == "Stokta Yok":
+    print(stok_text)
+    if stok_text == "Stokta yok":
+        
         print("Ürün bulunamadı")
         time.sleep(60)
         driver.refresh()
