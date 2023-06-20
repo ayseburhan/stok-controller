@@ -9,9 +9,10 @@ url="https://oykufashion.com/sort/haki-dugmeli-sort-tulum/"
 
 driver.get(url)
 
-button_size_s = driver.find_element(By.XPATH,'//*[@id="product-79264"]/div[1]/div[2]/div/div/div[2]/div/form/table/tbody/tr/td/div[1]/div[2]')
 time.sleep(2)
 while True:
+    button_size_s = driver.find_element(By.XPATH,'//*[@id="product-79264"]/div[1]/div[2]/div/div/div[2]/div/form/table/tbody/tr/td/div[1]/div[2]')
+
     button_size_s.click()
     time.sleep(2)
     stok_span = driver.find_element(By.XPATH, '//*[@id="product-79264"]/div[1]/div[2]/div/div/div[2]/div/form/div/div[1]/div[3]/p')
@@ -22,6 +23,7 @@ while True:
         print("Ürün bulunamadı")
         time.sleep(60)
         driver.refresh()
+        time.sleep(5)
     elif stok_text == "Stokta":
         print("Ürün bulundu.")
         break
